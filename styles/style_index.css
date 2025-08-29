@@ -5,12 +5,6 @@
   box-sizing: border-box;
 }
 
-/* Asegurar altura completa */
-html,
-body {
-  height: 100%;
-}
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
@@ -19,6 +13,7 @@ body {
 
   display: flex;
   flex-direction: column;
+  min-height: 100vh; /* más semántico que height en html/body */
 }
 
 /* HEADER */
@@ -51,32 +46,20 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* MAIN ocupa el espacio entre header y footer */
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
 /* PORTADA con imagen de fondo */
 .portada {
   flex: 1;
   position: relative;
   text-align: center;
-  background: url("../img/imagen_fondo.png") no-repeat center center;
-  background-size: contain; /* ahora se ve completa */
-  background-color: #6baef1ff; /* para que no quede blanco alrededor */
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("../img/imagen_fondo.png") center/contain no-repeat #6baef1ff;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Oscurecer un poco para que el texto sea legible */
 .portada .overlay {
-  background: rgba(0, 0, 0, 0.5); /* capa transparente negra */
+  background: rgba(0, 0, 0, 0.5);
   padding: 3rem;
   border-radius: 10px;
 }
